@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://moqf23a3kmv3"]
+
+[ext_resource type="Script" path="res://scripts/weapons/Minigun.gd" id="1_0rvn7"]
+[ext_resource type="Texture2D" uid="uid://bsi6ve12ivr32" path="res://icon.svg" id="2_tnweq"]
+[ext_resource type="Resource" uid="uid://dprm1xl3n7op7" path="res://resources/weapons/weapon_minigun.tres" id="2_xanha"]
+[ext_resource type="PackedScene" uid="uid://dxasc865ld1n0" path="res://scenes/components/wep_projectile_component.tscn" id="3_k77dp"]
+[ext_resource type="PackedScene" uid="uid://dp3bl6dfq520e" path="res://scenes/components/attack_component.tscn" id="4_muy0j"]
+[ext_resource type="PackedScene" uid="uid://cps4mmoxrhlyi" path="res://scenes/components/bullet_component.tscn" id="5_kgurj"]
+[ext_resource type="Resource" uid="uid://btjj51sptb3h5" path="res://resources/attacks/attack_minigun.tres" id="6_wnfqb"]
+[ext_resource type="Resource" uid="uid://te8kob4pplve" path="res://resources/bullets/bullet_minigun.tres" id="8_cncu3"]
+
+[node name="Minigun" type="Node2D" node_paths=PackedStringArray("muzzle", "wep_projectile_component", "attack_component", "reload_timer")]
+script = ExtResource("1_0rvn7")
+muzzle = NodePath("Muzzle")
+wep_projectile_component = NodePath("WepProjectileComponent")
+attack_component = NodePath("AttackComponent")
+weapon_resource = ExtResource("2_xanha")
+reload_timer = NodePath("ReloadTimer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.2)
+texture = ExtResource("2_tnweq")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(26, 0)
+
+[node name="WepProjectileComponent" parent="." node_paths=PackedStringArray("bullet_component") instance=ExtResource("3_k77dp")]
+bullet_component = NodePath("../BulletComponent")
+
+[node name="AttackComponent" parent="." instance=ExtResource("4_muy0j")]
+attack_resource = ExtResource("6_wnfqb")
+
+[node name="BulletComponent" parent="." instance=ExtResource("5_kgurj")]
+bullet_resource = ExtResource("8_cncu3")
+
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true

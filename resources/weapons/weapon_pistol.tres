@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_v0as1")
-reload_time = 0.2
+reload_time = 0.4
 aim_speed = 1.0
 distance_from_user = 30.0
-knockback = 1000.0
-screen_shake = 0.25
+knockback = 250.0
+screen_shake = 0.2

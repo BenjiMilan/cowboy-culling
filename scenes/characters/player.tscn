@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dv57pmhj1tvof" path="res://scenes/components/knockback_component.tscn" id="6_5p6ja"]
 [ext_resource type="Script" path="res://scripts/components/WepMoveComponent.gd" id="7_0k5hj"]
 [ext_resource type="PackedScene" uid="uid://5o4dhd2c5m3h" path="res://scenes/components/player_movement_component.tscn" id="7_ua4er"]
-[ext_resource type="PackedScene" uid="uid://cq3385vsoap52" path="res://scenes/weapons/pistol.tscn" id="9_8tbkr"]
+[ext_resource type="PackedScene" uid="uid://moqf23a3kmv3" path="res://scenes/weapons/minigun.tscn" id="9_vtkt6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ry1ci"]
 size = Vector2(144, 130)
@@ -22,7 +22,7 @@ script = ExtResource("1_6krak")
 wep_move_component = NodePath("WepMoveComponent")
 knockback_component = NodePath("KnockbackComponent")
 player_movement_component = NodePath("PlayerMovementComponent")
-starting_weapon = NodePath("Pistol")
+starting_weapon = NodePath("Minigun")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.5)
@@ -54,4 +54,4 @@ script = ExtResource("7_0k5hj")
 [node name="PlayerMovementComponent" parent="." node_paths=PackedStringArray("velocity_component") instance=ExtResource("7_ua4er")]
 velocity_component = NodePath("../VelocityComponent")
 
-[node name="Pistol" parent="." instance=ExtResource("9_8tbkr")]
+[node name="Minigun" parent="." instance=ExtResource("9_vtkt6")]

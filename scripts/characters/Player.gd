@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	wep_move_component.move_weapon(self, weapon)
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_pressed("click"):
 		weapon.fire()
 	player_movement_component.move_player(self)
 

@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://scripts/weapons/Pistol.gd" id="1_db3nb"]
 [ext_resource type="Texture2D" uid="uid://bsi6ve12ivr32" path="res://icon.svg" id="1_xrapy"]
-[ext_resource type="Resource" uid="uid://cx5hhxwn4ju73" path="res://resources/weapons/pistol.tres" id="2_1pu7t"]
-[ext_resource type="Resource" uid="uid://clxvoyocr6wn3" path="res://resources/attacks/pistol_attack.tres" id="2_4sh53"]
-[ext_resource type="Script" path="res://scripts/components/WepProjectileComponent.gd" id="3_chpy2"]
+[ext_resource type="Resource" uid="uid://cx5hhxwn4ju73" path="res://resources/weapons/weapon_pistol.tres" id="2_1pu7t"]
+[ext_resource type="Resource" uid="uid://clxvoyocr6wn3" path="res://resources/attacks/attack_pistol.tres" id="2_4sh53"]
+[ext_resource type="PackedScene" uid="uid://dxasc865ld1n0" path="res://scenes/components/wep_projectile_component.tscn" id="4_aywvx"]
 [ext_resource type="PackedScene" uid="uid://dp3bl6dfq520e" path="res://scenes/components/attack_component.tscn" id="4_cfuda"]
 [ext_resource type="PackedScene" uid="uid://cps4mmoxrhlyi" path="res://scenes/components/bullet_component.tscn" id="6_ae5o6"]
-[ext_resource type="Resource" uid="uid://casah65i5864j" path="res://resources/bullets/pistol_bullet.tres" id="7_p7id4"]
+[ext_resource type="Resource" uid="uid://casah65i5864j" path="res://resources/bullets/bullet_pistol.tres" id="7_p7id4"]
 
 [node name="Pistol" type="Node2D" node_paths=PackedStringArray("muzzle", "wep_projectile_component", "attack_component", "reload_timer") groups=["weapon"]]
 script = ExtResource("1_db3nb")
@@ -24,8 +24,7 @@ texture = ExtResource("1_xrapy")
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(13, 0)
 
-[node name="WepProjectileComponent" type="Node2D" parent="." node_paths=PackedStringArray("bullet_component")]
-script = ExtResource("3_chpy2")
+[node name="WepProjectileComponent" parent="." node_paths=PackedStringArray("bullet_component") instance=ExtResource("4_aywvx")]
 bullet_component = NodePath("../BulletComponent")
 
 [node name="AttackComponent" parent="." instance=ExtResource("4_cfuda")]

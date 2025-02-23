@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AttackResource" load_steps=2 format=3 uid="uid://btjj51sptb3h5"]
+
+[ext_resource type="Script" path="res://scripts/resources/AttackResource.gd" id="1_nlpcj"]
+
+[resource]
+script = ExtResource("1_nlpcj")
+damage = 25.0
+knockback_force = 0.0
