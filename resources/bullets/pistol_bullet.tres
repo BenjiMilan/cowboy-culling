@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BulletResource" load_steps=2 format=3 uid="uid://casah65i5864j"]
+
+[ext_resource type="Script" path="res://scripts/resources/BulletResource.gd" id="1_we7r2"]
+
+[resource]
+script = ExtResource("1_we7r2")
+type = "normal"
+speed = 800.0
+bounces = 0
+pierces = 0

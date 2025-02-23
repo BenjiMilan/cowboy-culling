@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr05dhyk5qst5"]
+
+[ext_resource type="PackedScene" uid="uid://jewwwu177llf" path="res://scenes/characters/player.tscn" id="1_3tlmu"]
+[ext_resource type="PackedScene" uid="uid://xxe707rjb88n" path="res://scenes/characters/enemy.tscn" id="2_gg6j5"]
+[ext_resource type="Script" path="res://scripts/camera/PlayerCamera.gd" id="2_lbvn6"]
+[ext_resource type="Script" path="res://scripts/camera/ScreenShake.gd" id="4_rux88"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_3tlmu")]
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+ignore_rotation = false
+script = ExtResource("2_lbvn6")
+
+[node name="Enemy" parent="." instance=ExtResource("2_gg6j5")]
+position = Vector2(306, -8)
+
+[node name="ScreenShake" type="Node" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("4_rux88")
+camera = NodePath("../PlayerCamera")
+decay = 0.8
+max_offset = Vector2(100, 75)
+max_roll = 0.1

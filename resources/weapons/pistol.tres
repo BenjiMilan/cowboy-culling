@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=2 format=3 uid="uid://cx5hhxwn4ju73"]
+
+[ext_resource type="Script" path="res://scripts/resources/WeaponResource.gd" id="1_v0as1"]
+
+[resource]
+script = ExtResource("1_v0as1")
+reload_time = 0.2
+aim_speed = 1.0
+distance_from_user = 30.0
+knockback = 1000.0
+screen_shake = 0.25

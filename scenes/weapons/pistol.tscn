@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://cq3385vsoap52"]
+
+[ext_resource type="Script" path="res://scripts/weapons/Pistol.gd" id="1_db3nb"]
+[ext_resource type="Texture2D" uid="uid://bsi6ve12ivr32" path="res://icon.svg" id="1_xrapy"]
+[ext_resource type="Resource" uid="uid://cx5hhxwn4ju73" path="res://resources/weapons/pistol.tres" id="2_1pu7t"]
+[ext_resource type="Resource" uid="uid://clxvoyocr6wn3" path="res://resources/attacks/pistol_attack.tres" id="2_4sh53"]
+[ext_resource type="Script" path="res://scripts/components/WepProjectileComponent.gd" id="3_chpy2"]
+[ext_resource type="PackedScene" uid="uid://dp3bl6dfq520e" path="res://scenes/components/attack_component.tscn" id="4_cfuda"]
+[ext_resource type="PackedScene" uid="uid://cps4mmoxrhlyi" path="res://scenes/components/bullet_component.tscn" id="6_ae5o6"]
+[ext_resource type="Resource" uid="uid://casah65i5864j" path="res://resources/bullets/pistol_bullet.tres" id="7_p7id4"]
+
+[node name="Pistol" type="Node2D" node_paths=PackedStringArray("muzzle", "wep_projectile_component", "attack_component", "reload_timer") groups=["weapon"]]
+script = ExtResource("1_db3nb")
+muzzle = NodePath("Muzzle")
+wep_projectile_component = NodePath("WepProjectileComponent")
+attack_component = NodePath("AttackComponent")
+weapon_resource = ExtResource("2_1pu7t")
+reload_timer = NodePath("ReloadTimer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.1)
+texture = ExtResource("1_xrapy")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(13, 0)
+
+[node name="WepProjectileComponent" type="Node2D" parent="." node_paths=PackedStringArray("bullet_component")]
+script = ExtResource("3_chpy2")
+bullet_component = NodePath("../BulletComponent")
+
+[node name="AttackComponent" parent="." instance=ExtResource("4_cfuda")]
+attack_resource = ExtResource("2_4sh53")
+
+[node name="BulletComponent" parent="." instance=ExtResource("6_ae5o6")]
+bullet_resource = ExtResource("7_p7id4")
+
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
